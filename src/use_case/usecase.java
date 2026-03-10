@@ -1,24 +1,15 @@
 package use_case;
 
-class CharacterPattern {
-
-    String[] pattern;
-
-    CharacterPattern(String[] pattern) {
-        this.pattern = pattern;
-    }
-
-    String getLine(int i) {
-        return pattern[i];
-    }
-
-}
+import java.util.HashMap;
+import java.util.Map;
 
 public class usecase {
 
     public static void main(String[] args) {
 
-        CharacterPattern O = new CharacterPattern(new String[]{
+        Map<Character, String[]> patterns = new HashMap<>();
+
+        patterns.put('O', new String[]{
                 "*******",
                 "*     *",
                 "*     *",
@@ -26,7 +17,7 @@ public class usecase {
                 "*******"
         });
 
-        CharacterPattern P = new CharacterPattern(new String[]{
+        patterns.put('P', new String[]{
                 "*****",
                 "*   *",
                 "*****",
@@ -34,7 +25,7 @@ public class usecase {
                 "*"
         });
 
-        CharacterPattern S = new CharacterPattern(new String[]{
+        patterns.put('S', new String[]{
                 "******",
                 "*     *",
                 "*****",
@@ -42,13 +33,16 @@ public class usecase {
                 "******"
         });
 
+        String word = "OOPS";
+
         for (int i = 0; i < 5; i++) {
-            System.out.println(
-                    O.getLine(i) + "   " +
-                    O.getLine(i) + "   " +
-                    P.getLine(i) + "   " +
-                    S.getLine(i)
-            );
+
+            for (char c : word.toCharArray()) {
+                System.out.print(patterns.get(c)[i] + "   ");
+            }
+
+            System.out.println();
         }
     }
 }
+               
