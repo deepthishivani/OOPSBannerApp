@@ -1,45 +1,54 @@
 package use_case;
 
+class CharacterPattern {
+
+    String[] pattern;
+
+    CharacterPattern(String[] pattern) {
+        this.pattern = pattern;
+    }
+
+    String getLine(int i) {
+        return pattern[i];
+    }
+
+}
+
 public class usecase {
 
     public static void main(String[] args) {
 
-        String[] O = patternO();
-        String[] P = patternP();
-        String[] S = patternS();
-
-        for (int i = 0; i < O.length; i++) {
-            System.out.println(O[i] + "   " + O[i] + "   " + P[i] + "   " + S[i]);
-        }
-    }
-
-    static String[] patternO() {
-        return new String[]{
+        CharacterPattern O = new CharacterPattern(new String[]{
                 "*******",
                 "*     *",
                 "*     *",
                 "*     *",
                 "*******"
-        };
-    }
+        });
 
-    static String[] patternP() {
-        return new String[]{
+        CharacterPattern P = new CharacterPattern(new String[]{
                 "*****",
                 "*   *",
                 "*****",
                 "*",
                 "*"
-        };
-    }
+        });
 
-    static String[] patternS() {
-        return new String[]{
+        CharacterPattern S = new CharacterPattern(new String[]{
                 "******",
                 "*     *",
                 "*****",
                 "*",
                 "******"
-        };
+        });
+
+        for (int i = 0; i < 5; i++) {
+            System.out.println(
+                    O.getLine(i) + "   " +
+                    O.getLine(i) + "   " +
+                    P.getLine(i) + "   " +
+                    S.getLine(i)
+            );
+        }
     }
 }
